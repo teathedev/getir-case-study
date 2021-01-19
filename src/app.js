@@ -6,6 +6,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 
 const route = require('./route');
+const errorHandler = require('./middlewares/errorHandler');
 const app = express();
   
 if (process.env.NODE_ENV && process.env.NODE_ENV !== 'development') {
@@ -15,6 +16,7 @@ if (process.env.NODE_ENV && process.env.NODE_ENV !== 'development') {
 }
 
 app.use(bodyParser.json());
+app.use(errorHandler);
 
 route(app);
 
