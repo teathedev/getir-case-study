@@ -18,7 +18,6 @@ module.exports = (app) => {
     '/',
     joiMiddleware(postScheme),
     async (req, res, next) => {
-      console.log(JSON.stringify(req.body));
       const results = await model.aggregate([
         {
           $project: {

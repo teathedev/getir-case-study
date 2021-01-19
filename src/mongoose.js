@@ -7,7 +7,15 @@ const config = {
 };
 
 
-module.exports = async () => {
-  await mongoose.connect(process.env.MONGO_DB_URL, config);
-  console.log('Mongo connected!');
+module.exports = {
+  connect: async () => {
+    await mongoose.connect(process.env.MONGO_DB_URL, config);
+    if (process.env.NODE_ENV !== 'test') {
+      console.log('Mongo connected!');
+    }
+  },
+  disconnect: async () => {
+    await mongoose.disconnect();
+  }
 };
+

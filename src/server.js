@@ -1,6 +1,7 @@
-const generateApp = require('./app');
+const app = require('./app');
+const mongoose = require('./mongoose');
 
-generateApp()
+mongoose.connect()
   .then((app) => {
     app.listen(process.env.PORT, () => {
       console.log(`Application listening at http://localhost:${process.env.PORT}`);
