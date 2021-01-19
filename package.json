@@ -5,7 +5,8 @@
   "main": "src/app.js",
   "scripts": {
     "test": "jest test/index.js",
-    "start": "nodemon nodemon.json"
+    "start-dev": "nodemon nodemon.json",
+    "start": "node src/server.js"
   },
   "repository": {
     "type": "git",
